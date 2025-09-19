@@ -35,7 +35,8 @@ argocd app create webapp-kustom-prod \
 --path kustom-webapp/overlays/prod --dest-server https://kubernetes.default.svc \
 --dest-namespace prod
 ```
-
+# Runnig the application.yaml
+kubectl apply -f application.yaml
 # Command Cheat sheet
 ```
 argocd app create #Create a new Argo CD application.
