@@ -1,0 +1,23 @@
+application.yaml
+apiVersion: argoproj.io/v1alpha1  
+kind: Application
+metadata:
+  name: helm-webapp-dev
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/jogiraju/argo-examples.git
+    targetRevision: HEAD
+    path: helm-webapp
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHealt: true
+      prune: true
